@@ -1,24 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="t7c-He-Irt">
+                                <rect key="frame" x="10" y="821" width="394" height="32"/>
+                                <segments>
+                                    <segment title="1:1"/>
+                                    <segment title="16:9"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeRatio:" destination="BYZ-38-t0r" eventType="valueChanged" id="ega-Zz-QlE"/>
+                                </connections>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xi2-fa-fqr">
+                                <rect key="frame" x="0.0" y="44" width="414" height="777"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="球衣捲線器" translatesAutoresizingMaskIntoConstraints="NO" id="PoM-YL-SUt">
+                                        <rect key="frame" x="0.0" y="181.5" width="414" height="414"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="PoM-YL-SUt" secondAttribute="height" multiplier="1:1" id="Uq1-tU-vSW"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="PoM-YL-SUt" firstAttribute="centerY" secondItem="xi2-fa-fqr" secondAttribute="centerY" id="8eJ-6Y-b3g"/>
+                                    <constraint firstAttribute="trailing" secondItem="PoM-YL-SUt" secondAttribute="trailing" id="eC0-Od-mJD"/>
+                                    <constraint firstItem="PoM-YL-SUt" firstAttribute="leading" secondItem="xi2-fa-fqr" secondAttribute="leading" id="gyG-Eg-Sg5"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xi2-fa-fqr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="23s-PT-xex"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="t7c-He-Irt" secondAttribute="bottom" constant="10" id="2hs-cB-51E"/>
+                            <constraint firstItem="xi2-fa-fqr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="PkY-U3-ulm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="t7c-He-Irt" secondAttribute="trailing" constant="10" id="RBx-Gq-SoN"/>
+                            <constraint firstItem="t7c-He-Irt" firstAttribute="top" secondItem="xi2-fa-fqr" secondAttribute="bottom" id="ffD-vr-0lu"/>
+                            <constraint firstItem="t7c-He-Irt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="lFU-UY-NAT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xi2-fa-fqr" secondAttribute="trailing" id="zbU-yw-Nf2"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageRatioConstraint" destination="Uq1-tU-vSW" id="V6a-ay-bkN"/>
+                        <outlet property="imageView" destination="PoM-YL-SUt" id="bBh-A3-eaw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="20" y="85"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="球衣捲線器" width="600" height="600"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
